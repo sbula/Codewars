@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2021. by Steve Bula
+ */
+
 package ch.pitbula.codewars.kyu_7;
 
 import java.util.Arrays;
@@ -6,8 +10,7 @@ import java.util.stream.Collectors;
 
 public class BalancedNumber {
     public static String balancedNum(long number) {
-        List<Integer> myNbr = Arrays.asList(String.valueOf(number).split(""))
-                .stream()
+        List<Integer> myNbr = Arrays.stream(String.valueOf(number).split(""))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
 

@@ -10,44 +10,66 @@
 
 	<groupId>ch.pitbula</groupId>
 	<artifactId>codewars</artifactId>
-	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
+	<description>This is a collection of some codewars examples I did</description>
+
+	<developers>
+		<developer>
+			<id>stb</id>
+			<name>Steve Bula</name>
+			<email>steve.bula@gmail.com</email>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>5.7.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-engine</artifactId>-->
+<!--			<version>${junit-platform.version}</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<argLine> --illegal-access=permit </argLine>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<modules>
-		<module>kyu_8</module>
-		<module>kyu_7</module>
-		<module>kyu_6</module>
-		<module>kyu_5</module>
-		<module>kyu_4</module>
-		<module>kyu_3</module>
-		<module>kyu_2</module>
-		<module>kyu_1</module>
-	</modules>
-
-	<dependencies>
-		<!-- Testing Framework -->
-		<dependency>
-			<groupId>org.junit</groupId>
-			<artifactId>junit-bom</artifactId>
-			<version>5.6.0</version>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter</artifactId>
-				<version>RELEASE</version>
-				<scope>test</scope>
-			</dependency>
-</dependencies>
 </project>
