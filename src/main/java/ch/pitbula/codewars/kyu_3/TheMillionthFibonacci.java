@@ -5,8 +5,10 @@
 package ch.pitbula.codewars.kyu_3;import java.math.BigInteger;
 
 public class TheMillionthFibonacci {
+
     public static BigInteger fib(BigInteger n) {
-        int nbr = n.intValue();
+        int nbr = n.intValue() * n.signum();
+        boolean isPosiveResult = n.signum()>0 || n.getLowestSetBit() == 0;
         BigInteger a = BigInteger.ZERO;
         BigInteger b = BigInteger.ONE;
         int m = 0;
@@ -27,6 +29,6 @@ public class TheMillionthFibonacci {
                 m++;
             }
         }
-        return a;
+        return isPosiveResult ? a : a.negate();
     }
 }

@@ -41,19 +41,16 @@ class TheMillionthFibonacciTest {
     }
 
     @Test
-    public void testFib6() {
-        testFib(8, 6);
-    }
+    public void testFibMinus1() { testFib(1, -1); }
 
-//    @Test
-//    public void testFib90() {
-//        testFib(2880067194370816120l, 90);
-//    }
-//
-//    @Test
-//    public void testFibMinus1() {
-//        testFib(2880067194370816120l, -1);
-//    }
+    @Test
+    public void testFibMinus2() { testFib(-1, -2); }
+
+    @Test
+    public void testFibMinus3() { testFib(2, -3); }
+
+    @Test
+    public void testFibMinus4() { testFib(-3, -4); }
 
 
     private static void testFib(long expected, long input) {
